@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>JS</title>
+        <style>
+            input,
+            button,
+            p{
+                display:block;
+                margin:20px;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" id="t1" placeholder="email address"></input>
+        <input type="password" id="t2" placeholder="password"></input>
+        <button onclick="func1()">Submit</button>
+        <script>
+            function func1()
+            {
+                let d1=document.getElementById("element1");
+                if(d1!=null)
+                    d1.remove();
+                let d2=document.getElementById("element2");
+                if(d2!=null)
+                    d2.remove();
+                let x1=document.getElementById("t1");
+                let y1=x1.value;
+                let x2=document.getElementById("t2");
+                let y2=x2.value;
+                let l1=y1.length;
+                let s1=y1.substr(l1-10, 10);
+                let e1=document.createElement('p');
+                e1.id="element1";
+                if(s1=="@gmail.com"){
+                    e1.innerText="valid email-address";
+                }
+                else{
+                    e1.innerText="invalid email-address";
+                }
+                document.body.appendChild(e1);
+                let e2=document.createElement('p');
+                e2.id="element2";
+                let l2=y2.length;
+                let f=0;
+                if((l2<8) || (!(y2.match(/[a-z]/g))) || (!(y2.match(/[A-Z]/g))) || (!(y2.match(/[0-9]/g))) || (!(y2.match(/[!@#$%^&*]/g)))){
+                    f=1;
+                }
+                if(f==0)
+                    e2.innerText="valid password";
+                else
+                    e2.innerText="invalid password";
+                document.body.appendChild(e2);
+            }
+        </script>
+    </body>
+</html>

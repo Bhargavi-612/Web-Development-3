@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JS</title>
+        <style>
+            img {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                top:0;
+                left:0;
+                width:100%;
+                z-index:0;
+            }
+            input{
+                display:block;
+                z-index: 100;
+                position: relative;
+                margin:20px;
+                width:300px;
+                height:40px;
+            }
+            button{
+                display: block;
+                position: relative;
+                margin-top:20px;
+                margin-left:110px;
+                width:100px;
+            }
+            h1{
+                display: block;
+                position: relative;
+                font-size: 40px;
+                color:white;
+                margin-top:20px;
+                margin-left: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="bg.jpg">
+        <h1>LOGIN</h1>
+        <input type="text" id="t1" placeholder="email address"></input>
+        <input type="password" id="t2" placeholder="password"></input>
+        <button onclick="func1()">Submit</button>
+        <script>
+            function func1()
+            {
+                let s="";
+                let x1=document.getElementById("t1");
+                let y1=x1.value;
+                let x2=document.getElementById("t2");
+                let y2=x2.value;
+                let l1=y1.length;
+                let s1=y1.substr(l1-10, 10);
+                let e1=document.createElement('p');
+                e1.id="element1";
+                if(s1!="@gmail.com"){
+                    s="invalid email-address";
+                }
+                let l2=y2.length;
+                let f=0;
+                if((l2<8) || (!(y2.match(/[a-z]/g))) || (!(y2.match(/[A-Z]/g))) || (!(y2.match(/[0-9]/g))) || (!(y2.match(/[!@#$%^&*]/g)))){
+                    f=1;
+                }
+                if(f==1){
+                    s=s+"\ninvalid password";
+                }
+                alert(s);
+            }
+        </script>
+    </body>
+</html>
